@@ -1,0 +1,26 @@
+{
+  "name": "bookings_at_bootcamp_bar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slingshort/bookings_at_bootcamp_bar.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/slingshort/bookings_at_bootcamp_bar/issues"
+  },
+  "homepage": "https://github.com/slingshort/bookings_at_bootcamp_bar#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.25.3"
+  }
+}

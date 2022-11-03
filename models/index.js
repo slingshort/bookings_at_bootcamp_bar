@@ -9,14 +9,10 @@ Booking.belongsTo(User, {
 });
 
 // User has many Booking
-User.hasMany(Booking)
-
-// Booking has one Seating
-Booking.hasOne(Seating)
-
+User.hasMany(Booking);
 
 module.exports = {
-    Booking,
-    Seating,
-    User,
-  };
+  Booking,
+  Seating,
+  User,
+};

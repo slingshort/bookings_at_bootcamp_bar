@@ -14,7 +14,7 @@ Seating.init(
       autoIncrement: true,
     },
     seating_time: {
-      type: DataTypes.TIME,
+      type: DataTypes.STRING,
       allowNull: false,
     },
   },

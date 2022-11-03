@@ -1,1 +1,5 @@
-// TODO
+-- DROP DATABASE
+DROP DATABASE IF EXISTS bootcamp_bar_db;
+
+-- CREATE DATABASE
+CREATE DATABASE bootcamp_bar_db;

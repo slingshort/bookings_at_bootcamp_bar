@@ -9,7 +9,9 @@ Booking.belongsTo(User, {
 });
 
 // User has many Booking
-User.hasMany(Booking);
+User.hasMany(Booking, {
+  foreignKey: "user_id",
+});
 
 module.exports = {
   Booking,

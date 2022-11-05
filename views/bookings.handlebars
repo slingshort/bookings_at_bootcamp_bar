@@ -1,0 +1,36 @@
+<body>
+    <nav>
+        <button type="submit" class="btn btn-secondary mb-3" id="indexBtn">Logout</button>
+    </nav>
+    <header class="p-5 text-center"> 
+        <h1><i class="fa-solid fa-champagne-glasses"></i> {{firstName}}'s Dahsboard <i class="fa-solid fa-martini-glass-citrus"></i></h1> 
+    </header>
+
+    <main class="container">
+        <div class="row justify-content-around">
+
+            <form class="col">
+                <div class="mb-3 px-5">
+                    <label for="seating" class="form-label">Book a time here</label>
+                    <!-- TODO create a custom drop down with allocated times -->
+                    <input type="datetime-local" class="form-control" id="seating">
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-secondary mb-3" id="bookingBtn">Log in</button>
+                </div>
+            </form>
+
+            <div class="col">
+                <h2> Current bookings </h2>
+                <ul>
+                    {{!-- use handlebars to dynamically render content FOREACH booking --}}
+                    <li>Test</li>
+                    <li>Test</li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+
+</body>

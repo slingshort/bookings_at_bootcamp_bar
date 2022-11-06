@@ -13,6 +13,16 @@ User.hasMany(Booking, {
   foreignKey: "user_id",
 });
 
+// Booking belongs to a Seating
+Booking.belongsTo(Seating, {
+  foreignKey: "seating_id",
+});
+
+// Seating has many Bookings
+Seating.hasMany(Booking, {
+  foreignKey: "seating_id",
+});
+
 module.exports = {
   Booking,
   Seating,

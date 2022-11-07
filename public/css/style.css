@@ -1,0 +1,36 @@
+.heroIMG {
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+    color:white;
+    text-shadow: 2px 2px 2px rgba(0,0,0,.2);
+}
+
+.color-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.4);
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: .15rem;
+    font-size: 25px;
+}
+ 
+h1 {
+    background-color: black;
+}
+
+ul {
+    list-style-type: "🍸";
+}
+
+a {
+    color:white
+}
+
+a:hover {
+    color:lightsteelblue
+}

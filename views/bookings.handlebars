@@ -1,36 +1,40 @@
 <body>
-    <nav>
-        <button type="submit" class="btn btn-secondary mb-3" id="indexBtn">Logout</button>
-    </nav>
-    <header class="p-5 text-center"> 
-        <h1><i class="fa-solid fa-champagne-glasses"></i> {{firstName}}'s Dahsboard <i class="fa-solid fa-martini-glass-citrus"></i></h1> 
-    </header>
+    <div class="heroIMG" style="background-image: url('./public/assets/images/bar3-bg.jpg');">
+        <nav>
+            <button type="submit" class="btn btn-outline-light btn-lg" id="indexBtn">Logout</button>
+        </nav>
+        <header class="text-center">
+            <h1><i class="fa-solid fa-champagne-glasses"></i> {{User}}'s Dahsboard <i
+                    class="fa-solid fa-martini-glass-citrus"></i></h1>
+        </header>
+        <div class="color-overlay d-flex justify-content-center align-items-center">
 
-    <main class="container">
-        <div class="row justify-content-around">
+            <div class="container">
+                <main class="row justify-content-around">
+                    <form class="col">
+                        <div class="mb-3 px-5">
+                            <label for="seating" class="form-label">Book a time here</label>
+                            <!-- TODO create a custom drop down with allocated times -->
+                            <input type="datetime-local" class="form-control" id="seating">
+                        </div>
+                        <div class="d-flex justify-content-end pe-5">
+                            <button type="submit" class="btn btn-outline-light mb-3" id="bookingBtn">Log in</button>
+                        </div>
+                    </form>
 
-            <form class="col">
-                <div class="mb-3 px-5">
-                    <label for="seating" class="form-label">Book a time here</label>
-                    <!-- TODO create a custom drop down with allocated times -->
-                    <input type="datetime-local" class="form-control" id="seating">
-                </div>
-                <div>
-                    <button type="submit" class="btn btn-secondary mb-3" id="bookingBtn">Log in</button>
-                </div>
-            </form>
-
-            <div class="col">
-                <h2> Current bookings </h2>
-                <ul>
-                    {{!-- use handlebars to dynamically render content FOREACH booking --}}
-                    <li>Test</li>
-                    <li>Test</li>
-                </ul>
+                    <div class="col">
+                        <h2> Current bookings </h2>
+                        <p> Please click on a time slot to amend booking</p>
+                        <ul>
+                            {{!-- rendering bookings from booking model for a given user --}}
+                        {{#each bookings as |booking|}}
+                            <li>{{booking.date}} at {{booking.seating_time}}</li>
+                        {{/each}}
+                        </ul>
+                    </div>
+                </main>
             </div>
 
         </div>
-    </main>
-
-
+    </div>
 </body>

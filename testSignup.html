@@ -16,43 +16,53 @@
 </head>
 
 <body>
-    <nav>
-        <button type="submit" class="btn btn-secondary mb-3"  id="indexBtn">Home</button>
-    </nav>
-    <header>
-        <h1>Sign up</h1>
-    </header>
-    <main>
-        <form>
-            <div class="mb-3 px-5">
-                <label for="firstName" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="firstName">
+    <div class="heroIMG" style="background-image: url('./public/assets/images/bar2-bg.jpg');">
+        <nav>
+            <button type="submit" class="btn btn-outline-light btn-lg" id="indexBtn">Home</button>
+        </nav>
+        <div class="color-overlay d-flex justify-content-center align-items-center">
+            <br><br>
+            <div class="container">
+                <header>
+                    <h1> Sign up <i
+                            class="fa-solid fa-martini-glass-citrus"></i></h1>
+                </header>
+                <main>
+                    <form>
+                        <div class="mb-3 px-5">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstName">
+                        </div>
+                        <div class="mb-3 px-5">
+                            <label for="lastName" class="form-label">Last name</label>
+                            <input type="text" class="form-control" id="lastName">
+                        </div> 
+                        <div class="mb-3 px-5">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                        </div>
+                        <div class="mb-3 px-5">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password"
+                                placeholder="Choose a password for this account">
+                        </div>
+                        <div class="mb-3 px-5">
+                            <label for="mobile" class="form-label">Mobile</label>
+                            <input type="number" class="form-control" id="mobile">
+                        </div>
+                        <div class="ps-5">
+                            <input type="checkbox" name="subscribe" id="subscribe" />
+                            <label for="subscribe">Subscribe to our newsletter</label>
+                        </div>
+                        <br>
+                        <div class="d-grid justify-content-center mx-auto">
+                            <button type="button" class="btn btn-outline-light mb-3" id="submitBtn">Submit</button>
+                        </div>
+                    </form>
+                </main>
             </div>
-            <div class="mb-3 px-5">
-                <label for="lastName" class="form-label">Last name</label>
-                <input type="text" class="form-control" id="lastName">
-            </div>
-            <div class="mb-3 px-5">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="name@example.com">
-            </div>
-            <div class="mb-3 px-5">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Choose a password for this account">
-            </div>
-            <div class="mb-3 px-5">
-                <label for="mobile" class="form-label">Mobile</label>
-                <input type="number" class="form-control" id="mobile">
-            </div>
-            <div>
-                <input type="checkbox" name="subscribe" id="subscribe" />
-                <label for="subscribe">Subscribe to our newsletter</label>
-            </div>
-            <div>
-                <button type="submit" class="btn btn-secondary mb-3" id="submitBtn">Submit</button>
-            </div>
-        </form>
-    </main>
+        </div>
+    </div>
 
 </body>
 

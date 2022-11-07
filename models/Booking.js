@@ -21,7 +21,7 @@ Booking.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    seating_time: {
+    seating_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "seating",

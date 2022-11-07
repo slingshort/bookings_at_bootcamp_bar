@@ -13,7 +13,7 @@ Seating.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    seating_time: {
+    time: {
       type: DataTypes.STRING,
       allowNull: false,
     },

@@ -6,14 +6,14 @@ const userData = [
     last_name: "Smith",
     email: "john@gmail.com",
     password: "ILovePotato",
-    newsletter: true,
+    is_subscriber: true,
   },
   {
     first_name: "Jane",
     last_name: "Smith",
     email: "jane@gmail.com",
     password: "Watermelon",
-    newsletter: true,
+    is_subscriber: true,
   },
 ];
 

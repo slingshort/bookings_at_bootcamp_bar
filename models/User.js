@@ -37,7 +37,7 @@ User.init(
         len: [8, 128],
       },
     },
-    is_subsciber: {
+    is_subscriber: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },

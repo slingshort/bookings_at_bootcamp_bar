@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const { Booking, Seating, User } = require("../../models");
+const { Booking, Seating } = require("../../models");
+const moment = require("moment-timezone");
 
 router.get("/", async (req, res) => {
   try {
@@ -15,11 +16,22 @@ router.get("/", async (req, res) => {
           exclude: ["seating_id", "user_id"],
         },
       });
-      res.json(data);
+
+      res.json(
+        data.map((booking) => {
+          return {
+            ...booking.dataValues,
+            date: moment(booking.dataValues.date)
+              .tz("Australia/Sydney")
+              .format("DD/MM/YYYY"),
+          };
+        })
+      );
     } else {
       res.status(401).json({ message: "Invalid session!" });
     }
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -40,7 +52,12 @@ router.get("/:id", async (req, res) => {
         },
       });
       if (data) {
-        res.status(200).json(data);
+        res.status(200).json({
+          ...data.dataValues,
+          date: moment(data.dataValues.date)
+            .tz("Australia/Sydney")
+            .format("DD/MM/YYYY"),
+        });
       } else {
         res.status(404).json({ message: "No booking with this id!" });
       }
@@ -48,6 +65,7 @@ router.get("/:id", async (req, res) => {
       res.status(401).json({ message: "Invalid session!" });
     }
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -57,7 +75,12 @@ router.post("/", async (req, res) => {
   try {
     // User can only book for themselves
     if (req.session?.user_id == req.body?.user_id) {
-      const data = await Booking.create(req.body);
+      const data = await Booking.create({
+        ...req.body,
+        date: moment(req.body.date, "DD/MM/YYYY")
+          .tz("Australia/Sydney")
+          .toISOString(),
+      });
       res.status(200).json(data);
     } else {
       res.status(400).json({ message: "Invalid payload!" });
@@ -79,7 +102,13 @@ router.put("/:id", async (req, res) => {
         },
       });
       if (data) {
-        data = await Booking.update(req.body, {
+        let updates = req.body;
+        if (updates?.date) {
+          updates.date = moment(updates.date, "DD/MM/YYYY")
+            .tz("Australia/Sydney")
+            .toISOString();
+        }
+        data = await Booking.update(updates, {
           where: {
             id: req.params.id,
           },
@@ -96,6 +125,7 @@ router.put("/:id", async (req, res) => {
       res.status(401).json({ message: "Invalid session!" });
     }
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -120,6 +150,7 @@ router.delete("/:id", async (req, res) => {
       res.status(401).json({ message: "Invalid session!" });
     }
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });

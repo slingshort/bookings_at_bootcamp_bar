@@ -1,28 +1,35 @@
 const { Booking } = require("../models");
-const moment = require("moment-timezone")
-console.log(moment('2022/11/07', 'YYYY/MM/DD').tz('Australia/Sydney').toISOString())
+const moment = require("moment-timezone");
 
 const bookingData = [
   {
-    date: "2022/11/07",
+    date: moment("07/11/2022", "DD/MM/YYYY")
+      .tz("Australia/Sydney")
+      .toISOString(),
     seats: 5,
     seating_id: 1,
     user_id: 1,
   },
   {
-    date: "2022/11/07",
+    date: moment("07/11/2022", "DD/MM/YYYY")
+      .tz("Australia/Sydney")
+      .toISOString(),
     seats: 10,
     seating_id: 1,
     user_id: 2,
   },
   {
-    date: "2022/11/07",
+    date: moment("07/11/2022", "DD/MM/YYYY")
+      .tz("Australia/Sydney")
+      .toISOString(),
     seats: 6,
     seating_id: 2,
     user_id: 1,
   },
   {
-    date: "2022/11/07",
+    date: moment("07/11/2022", "DD/MM/YYYY")
+      .tz("Australia/Sydney")
+      .toISOString(),
     seats: 9,
     seating_id: 2,
     user_id: 2,

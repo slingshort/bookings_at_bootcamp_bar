@@ -1,5 +1,5 @@
-const router = require("express").Router();
-const { User } = require("../../models");
+const router = require('express').Router();
+const { User } = require('../../models');
 
 // router.get("/", async (req, res) => {
 //   // find all user
@@ -11,18 +11,20 @@ const { User } = require("../../models");
 //   }
 // });
 
-router.get("/:id", async (req, res) => {
+router.get('/:id', async (req, res) => {
   // find a single user by its `id` if they are logged in
   try {
+    // req.params.id is string while req.session.user_id is int
+    // eslint-disable-next-line eqeqeq
     if (req.params?.id == req.session?.user_id && req.session?.logged_in) {
       const data = await User.findByPk(req.params.id);
       if (data) {
         res.status(200).json(data);
       } else {
-        res.status(404).json({ message: "No user with this id!" });
+        res.status(404).json({ message: 'No user with this id!' });
       }
     } else {
-      res.status(401).json({ message: "Invalid session!" });
+      res.status(401).json({ message: 'Invalid session!' });
     }
   } catch (err) {
     console.log(err);
@@ -30,7 +32,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
   // create a new user
   try {
     const data = await User.create(req.body);
@@ -40,9 +42,11 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put('/:id', async (req, res) => {
   // update a user name by it's `id` value only if they are logged in
   try {
+    // req.params.id is string while req.session.user_id is int
+    // eslint-disable-next-line eqeqeq
     if (req.params?.id == req.session?.user_id && req.session?.logged_in) {
       let data = await User.findByPk(req.params.id);
       if (data) {
@@ -52,24 +56,26 @@ router.put("/:id", async (req, res) => {
           },
         });
         if (data[0]) {
-          res.status(200).json({ message: " Success" });
+          res.status(200).json({ message: ' Success' });
         } else {
-          res.status(400).json({ message: "Invalid payload!" });
+          res.status(400).json({ message: 'Invalid payload!' });
         }
       } else {
-        res.status(404).json({ message: "No user with this id!" });
+        res.status(404).json({ message: 'No user with this id!' });
       }
     } else {
-      res.status(401).json({ message: "Invalid session!" });
+      res.status(401).json({ message: 'Invalid session!' });
     }
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete('/:id', async (req, res) => {
   // delete user by its `id` value, only if they are logged in
   try {
+    // req.params.id is string while req.session.user_id is int
+    // eslint-disable-next-line eqeqeq
     if (req.params?.id == req.session?.user_id && req.session?.logged_in) {
       const data = await User.destroy({
         where: {
@@ -77,12 +83,12 @@ router.delete("/:id", async (req, res) => {
         },
       });
       if (data) {
-        res.status(200).json({ message: "Success" });
+        res.status(200).json({ message: 'Success' });
       } else {
-        res.status(404).json({ message: "No user with this id!" });
+        res.status(404).json({ message: 'No user with this id!' });
       }
     } else {
-      res.status(401).json({ message: "Invalid session!" });
+      res.status(401).json({ message: 'Invalid session!' });
     }
   } catch (err) {
     res.status(500).json(err);

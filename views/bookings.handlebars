@@ -2,7 +2,7 @@
     <div class="heroIMG" style="background-image: url('/assets/images/bar3-bg.jpg');">
         <nav class="navbar navbar-default navbar-fixed-top transparent" id="navCustom">
             <a class=" navbar-brand" href="#">
-                <h1 class="ms-3 text-white"><i class="fa-solid fa-wine-glass"></i> {{booking.first_name}}'s Dahsboard</h1>
+                <h1 class="ms-3 text-white"><i class="fa-solid fa-wine-glass"></i>Dahsboard</h1>
             </a>
             <div class="justify-self-end form-inline my-1 my-lg-0">
                 <button type="submit" class="btn btn-outline-light btn-lg mx-3" id="indexBtn">Logout</button>
@@ -36,9 +36,9 @@
                         <p> Please click on a time slot to amend booking</p>
                         <ul>
                             {{!-- rendering bookings from booking model for a given user --}}
-                        {{#each user.bookings as |booking|}}
+                        {{#each bookings as |booking|}}
                             <li>
-                                <button type="button" class="btn btn-outline-light btn-block btn-lg"> {{date}}, {{seating_id}} for {{seats}} people </button> 
+                                <button type="button" class="btn btn-outline-light btn-block btn-lg"> {{date}}, {{seating.time}} for {{seats}} people </button> 
                                 <button type="button" class="btn btn-outline-light btn-block btn-lg"> ❌ </button>
                             </li>
                         {{/each}}

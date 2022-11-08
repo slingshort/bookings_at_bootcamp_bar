@@ -1,49 +1,42 @@
 <body>
-    <div class="heroIMG" style="background-image: url('./public/assets/images/bar2-bg.jpg');">
-        <nav>
-            <button type="submit" class="btn btn-outline-light btn-lg"  id="indexBtn">Home</button>
+    <div class="heroIMG" style="background-image: url('/assets/images/bar2-bg.jpg');">
+        <nav class="navbar navbar-default navbar-fixed-top transparent" id="navCustom">
+            <a class=" navbar-brand" href="#">
+                <h1 class="ms-3 text-white"><i class="fa-solid fa-champagne-glasses"></i> Sign up</h1>
+            </a>
+            <div class="justify-self-end form-inline my-1 my-lg-0">
+                <button type="submit" class="btn btn-outline-light btn-lg mx-3" id="indexBtn">Logout</button>
+            </div>
         </nav>
-        <div class="color-overlay d-flex justify-content-center align-items-center">
-            <br><br>
-            <div class="container">
-                <header>
-                    <h1>Sign up <i class="fa-solid fa-martini-glass-citrus"></i></h1>
-                </header>
+        <div class="color-overlay">
+            <div class="container py-3 mt-3 fs-4 justify-items-center align-items-center" id="signupForm">
                 <main>
                     <form>
                         <div class="mb-3 px-5">
-                            <label for="firstName" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="firstName">
+                            <label for="password" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="Jane">
                         </div>
                         <div class="mb-3 px-5">
-                            <label for="lastName" class="form-label">Last name</label>
-                            <input type="text" class="form-control" id="lastName">
-                        </div>
+                            <label for="password" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Doe">
+                        </div> 
                         <div class="mb-3 px-5">
-                            <label for="email" class="form-label">Email address</label>
+                            <label for="password" class="form-label">Email</label>
                             <input type="email" class="form-control" id="email" placeholder="name@example.com">
                         </div>
                         <div class="mb-3 px-5">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Choose a password for this account">
+                            <input type="password" class="form-control" id="password"
+                                placeholder="Choose a password for this account">
                         </div>
-                        <div class="mb-3 px-5">
-                            <label for="mobile" class="form-label">Mobile</label>
-                            <input type="number" class="form-control" id="mobile">
-                        </div>
-                        <div>
+                        <div class="ps-5 fs-6">
                             <input type="checkbox" name="subscribe" id="subscribe" />
                             <label for="subscribe">Subscribe to our newsletter</label>
                         </div>
+                        <br>
                         <div class="d-grid justify-content-center mx-auto">
-                            <button type="submit" class="btn btn-outline-light mb-3" id="submitBtn">Submit</button>
+                            <button type="button" class="btn btn-outline-light mb-3" id="submitBtn">Submit</button>
                         </div>
-                        <div>
-                            {{#if user.is_subscriber}}
-                            <p> Thank you for subscribing, please check your email for our newsletter</p>
-                            {{/if}}
-                        </div>
-                        </form>
                     </form>
                 </main>
             </div>

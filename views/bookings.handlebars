@@ -1,34 +1,46 @@
 <body>
-    <div class="heroIMG" style="background-image: url('./public/assets/images/bar3-bg.jpg');">
-        <nav>
-            <button type="submit" class="btn btn-outline-light btn-lg" id="indexBtn">Logout</button>
+    <div class="heroIMG" style="background-image: url('/assets/images/bar3-bg.jpg');">
+        <nav class="navbar navbar-default navbar-fixed-top transparent" id="navCustom">
+            <a class=" navbar-brand" href="#">
+                <h1 class="ms-3 text-white"><i class="fa-solid fa-wine-glass"></i> {{booking.first_name}}'s Dahsboard</h1>
+            </a>
+            <div class="justify-self-end form-inline my-1 my-lg-0">
+                <button type="submit" class="btn btn-outline-light btn-lg mx-3" id="indexBtn">Logout</button>
+            </div>
         </nav>
-        <header class="text-center">
-            <h1><i class="fa-solid fa-champagne-glasses"></i> {{User}}'s Dahsboard <i
-                    class="fa-solid fa-martini-glass-citrus"></i></h1>
-        </header>
         <div class="color-overlay d-flex justify-content-center align-items-center">
 
             <div class="container">
                 <main class="row justify-content-around">
                     <form class="col">
                         <div class="mb-3 px-5">
-                            <label for="seating" class="form-label">Book a time here</label>
+                            <label for="seating" class="form-label">Pick a date here</label>
                             <!-- TODO create a custom drop down with allocated times -->
-                            <input type="datetime-local" class="form-control" id="seating">
+                            <input type="date" class="form-control" id="seating">
                         </div>
+                        <div class="input-group mb-3 ps-5">
+                            <select class="custom-select" id="inputGroupSelect01">
+                                <option selected> Please select a seating time </option>
+                                <option value="1" > 6pm </option>
+                                <option value="2" > 8pm </option>
+                            </select>
+                        </div>
+
                         <div class="d-flex justify-content-end pe-5">
-                            <button type="submit" class="btn btn-outline-light mb-3" id="bookingBtn">Log in</button>
+                            <button type="submit" class="btn btn-outline-light mb-3" id="bookingBtn">Confirm Booking</button>
                         </div>
                     </form>
 
-                    <div class="col">
+                    <div class="col" id="backgroundShading">
                         <h2> Current bookings </h2>
                         <p> Please click on a time slot to amend booking</p>
                         <ul>
                             {{!-- rendering bookings from booking model for a given user --}}
-                        {{#each bookings as |booking|}}
-                            <li>{{booking.date}} at {{booking.seating_time}}</li>
+                        {{#each user.bookings as |booking|}}
+                            <li>
+                                <button type="button" class="btn btn-outline-light btn-block btn-lg"> {{date}}, {{seating_id}} for {{seats}} people </button> 
+                                <button type="button" class="btn btn-outline-light btn-block btn-lg"> ❌ </button>
+                            </li>
                         {{/each}}
                         </ul>
                     </div>

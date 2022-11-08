@@ -1,9 +1,9 @@
 <body>
-    <div class="heroIMG" style="background-image: url('/public/assets/images/bar-bg.jpg');">
+    <div class="heroIMG" style="background-image: url('/assets/images/bar-bg.jpg');">
         <div class="color-overlay d-flex justify-content-center align-items-center">
             <div class="container">
                 <div class="row">
-                    <div class="col">
+                    <div class="col" id="backgroundShading">
                         <header class="p-4">
                             <h1> Bootcamp Bar <i class="fa-solid fa-champagne-glasses"></i></h1>
                         </header>
@@ -18,7 +18,7 @@
 
                     <div class="col">
                         <form class="p-5">
-                            <h3 class="p-3">Please login to make a Bookings</h2>
+                            <h3 class="p-3">Please login to make a booking</h2>
                                 <div class="mb-3 px-5">
                                     <label for="exampleFormControlInput1" class="form-label">Email address</label>
                                     <input type="email" class="form-control" id="email" placeholder="name@example.com">
@@ -28,8 +28,9 @@
                                     <input type="password" class="form-control" id="password">
                                 </div>
                                 <div class="d-flex justify-content-end pe-5">
-                                    <button type="submit" class="btn btn-outline-light" id="loginBtn">Log
-                                        in</button>
+                                    <button type="submit" class="btn btn-outline-light m-1" id="loginBtn">Log in</button>
+                                    <button type="submit" class="btn btn-outline-light m-1" id="signupBtn">Sign up</button>
+
                                 </div>
                         </form>
 

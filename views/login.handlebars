@@ -20,17 +20,18 @@
                         <form class="p-5">
                             <h3 class="p-3">Please login to make a booking</h2>
                                 <div class="mb-3 px-5">
-                                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                                    <label for="email" class="form-label">Email address</label>
+                                    <input required type="email" class="form-control" id="email">
                                 </div>
                                 <div class="mb-3 px-5">
-                                    <label for="exampleFormControlInput1" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="password">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input required type="password" class="form-control" id="password">
                                 </div>
                                 <div class="d-flex justify-content-end pe-5">
                                     <button type="submit" class="btn btn-outline-light m-1" id="loginBtn">Log in</button>
-                                    <button type="submit" class="btn btn-outline-light m-1" id="signupBtn">Sign up</button>
-
+                                </div>
+                                <div>
+                                    <a href="/signup"> Don't have an account? Sign up here.</a>
                                 </div>
                         </form>
 
@@ -40,4 +41,5 @@
         </div>
     </div>
 
+    <script src='/js/login.js'></script>
 </body>

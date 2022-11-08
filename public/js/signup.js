@@ -2,27 +2,45 @@
 async function signupFormHandler(event) {
     event.preventDefault();
 
-    const username = document.querySelector("#username-signup").value.trim();
-    const email = document.querySelector("#email-signup").value.trim();
-    const password = document.querySelector("#password-signup").value.trim();
+    const first_name = document.querySelector("#firstName").value.trim();
+    const last_name = document.querySelector('#lastName').value.trim();
+    const email = document.querySelector("#email").value.trim();
+    const password = document.querySelector("#password").value.trim();
+    const is_subscriber = document.querySelector("#subscribe").checked;
 
-    if (username && email && password) {
+
+    if (first_name && last_name && email && password) {
         const response = await fetch("/api/users", {
             method: "post",
             body: JSON.stringify({
-                username,
+                first_name,
+                last_name,
                 email,
                 password,
+                is_subscriber,
             }),
             headers: { "Content-Type": "application/json" },
         });
         if (response.ok) {
-            alert("Account created! Logging you in now.");
-            document.location.replace("/dashboard");
+            // create post req to log user in upon signup
+            const response = await fetch("api/login", {
+                method: "post",
+                body: JSON.stringify({
+                    email,
+                    password,
+                }),
+                headers: { "Content-Type": "application/json" },
+            }); 
+            if (response.ok) {
+                // redirect to bookings page upon signup
+                document.location.replace("/bookings");
+            } else {
+                alert("Something went wrong :(")
+            }
         } else {
             alert(response.statusText);
         }
     }
 }
 
-document.querySelector(".signup").addEventListener("submit", signupFormHandler);
+document.querySelector("#submitBtn").addEventListener("click", signupFormHandler);

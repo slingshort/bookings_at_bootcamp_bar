@@ -1,6 +1,7 @@
 const router = require("express").Router();
-const { Booking, User } = require("../models");
+const { Booking, User, Seating } = require("../models");
 const apiRoutes = require("./api");
+const moment = require("moment-timezone");
 
 
 
@@ -13,28 +14,36 @@ router.get('/', async(req,res) => {
 
 // singup page (static file)
 router.get('/signup', async(req,res) => {
-  res.render('signup',)
+  res.render('signup')
 })
 
 // bookings page
-router.get('/bookings', async(req,res) => {
+router.get("/bookings", async (req, res) => {
   try {
-    const userData = await User.findByPk(req.params.id, {
-      include: [
-        {
-          model: Booking,
-          attributes: [
-            'date',
-            'seats',
-            'seating_id'
-          ],
+    // Check for active session
+    if (req.session?.logged_in) {
+      // find all bookings for the active user
+      let bookings = await Booking.findAll({
+        where: {
+          user_id: req.session.user_id,
         },
-      ],
-    });
-
-    const user = userData.get({plain: true});
-    res.render('bookings', {user});
+        include: [{ model: Seating }],
+        attributes: {
+          exclude: ["seating_id", "user_id"],
+        },
+      });
+      bookings = bookings.map((booking) => {
+        booking = booking.get({ plain: true});
+        booking.date = moment(booking.date).tz("Australia/Sydney").format("DD/MM/YYYY")
+        return booking
+      })
+      console.log(bookings)
+      res.render( 'bookings', { bookings });
+    } else {
+      res.status(401).json({ message: "Invalid session!" });
+    }
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });

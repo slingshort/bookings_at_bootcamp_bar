@@ -1,7 +1,7 @@
 <body>
     <div class="heroIMG" style="background-image: url('/assets/images/bar2-bg.jpg');">
         <nav class="navbar navbar-default navbar-fixed-top transparent" id="navCustom">
-            <a class=" navbar-brand" href="#">
+            <a class=" navbar-brand">
                 <h1 class="ms-3 text-white"><i class="fa-solid fa-champagne-glasses"></i> Sign up</h1>
             </a>
             <div class="justify-self-end form-inline my-1 my-lg-0">
@@ -13,20 +13,20 @@
                 <main>
                     <form>
                         <div class="mb-3 px-5">
-                            <label for="password" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="Jane">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input required type="text" class="form-control" id="firstName" placeholder="Jane">
                         </div>
                         <div class="mb-3 px-5">
-                            <label for="password" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="Doe">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input required type="text" class="form-control" id="lastName" placeholder="Doe">
                         </div> 
                         <div class="mb-3 px-5">
-                            <label for="password" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                            <label for="email" class="form-label">Email</label>
+                            <input required type="email" class="form-control" id="email" placeholder="name@example.com">
                         </div>
                         <div class="mb-3 px-5">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password"
+                            <input required type="password" class="form-control" id="password"
                                 placeholder="Choose a password for this account">
                         </div>
                         <div class="ps-5 fs-6">
@@ -43,4 +43,5 @@
         </div>
     </div>
 
+    <script src="/js/signup.js"></script>
 </body>

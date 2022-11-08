@@ -74,9 +74,7 @@ router.post('/', async (req, res) => {
   // create a new booking
   try {
     // User can only book for themselves
-    // req.params.id is string while req.session.user_id is int
-    // eslint-disable-next-line eqeqeq
-    if (req.session?.user_id == req.body?.user_id) {
+    if (req.session?.user_id === req.body?.user_id) {
       const data = await Booking.create({
         ...req.body,
         date: moment(req.body.date, 'DD/MM/YYYY')

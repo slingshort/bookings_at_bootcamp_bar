@@ -16,7 +16,7 @@ router.get('/:id', async (req, res) => {
   try {
     // req.params.id is string while req.session.user_id is int
     // eslint-disable-next-line eqeqeq
-    if (req.params?.id == req.session?.user_id && req.session?.logged_in) {
+    if (req.params.id == req.session?.user_id && req.session?.logged_in) {
       const data = await User.findByPk(req.params.id);
       if (data) {
         res.status(200).json(data);
@@ -47,7 +47,7 @@ router.put('/:id', async (req, res) => {
   try {
     // req.params.id is string while req.session.user_id is int
     // eslint-disable-next-line eqeqeq
-    if (req.params?.id == req.session?.user_id && req.session?.logged_in) {
+    if (req.params.id == req.session?.user_id && req.session?.logged_in) {
       let data = await User.findByPk(req.params.id);
       if (data) {
         data = await User.update(req.body, {
@@ -76,7 +76,7 @@ router.delete('/:id', async (req, res) => {
   try {
     // req.params.id is string while req.session.user_id is int
     // eslint-disable-next-line eqeqeq
-    if (req.params?.id == req.session?.user_id && req.session?.logged_in) {
+    if (req.params.id == req.session?.user_id && req.session?.logged_in) {
       const data = await User.destroy({
         where: {
           id: req.params.id,

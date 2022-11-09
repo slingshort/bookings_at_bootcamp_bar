@@ -38,8 +38,8 @@
                             {{!-- rendering bookings from booking model for a given user --}}
                         {{#each bookings as |booking|}}
                             <li>
-                                <button type="button" class="btn btn-outline-light btn-block btn-lg"> {{date}}, {{seating.time}} for {{seats}} people </button> 
-                                <button type="button" class="btn btn-outline-light btn-block btn-lg"> ❌ </button>
+                                <button type="button" class="btn btn-outline-light btn-block btn-lg"> {{date}}, {{seating.time}} for {{seats}} people </button>
+                                <button type="button" class="delete-btn btn btn-outline-light btn-block btn-lg" data-booking-id="{{id}}"> ❌ </button>
                             </li>
                         {{/each}}
                         </ul>
@@ -49,4 +49,5 @@
 
         </div>
     </div>
+    <script src="/js/bookings.js"></script>
 </body>

@@ -3,17 +3,15 @@ const { Booking, Seating } = require('../models');
 const apiRoutes = require('./api');
 const moment = require('moment-timezone');
 
-
-
 router.use('/api', apiRoutes);
 
 // landing page (static file)
-router.get('/', async(req,res) => {
+router.get('/', async (req, res) => {
   res.render('login');
 });
 
 // singup page (static file)
-router.get('/signup', async(req,res) => {
+router.get('/signup', async (req, res) => {
   res.render('signup');
 });
 
@@ -33,14 +31,15 @@ router.get('/bookings', async (req, res) => {
         },
       });
       bookings = bookings.map((booking) => {
-        booking = booking.get({ plain: true});
-        booking.date = moment(booking.date).tz('Australia/Sydney').format('DD/MM/YYYY');
+        booking = booking.get({ plain: true });
+        booking.date = moment(booking.date)
+          .tz('Australia/Sydney')
+          .format('DD/MM/YYYY');
         return booking;
       });
-      console.log(bookings);
-      res.render( 'bookings', { bookings });
+      res.render('bookings', { bookings });
     } else {
-      res.status(401).json({ message: 'Invalid session!' });
+      res.redirect('/');
     }
   } catch (err) {
     console.log(err);

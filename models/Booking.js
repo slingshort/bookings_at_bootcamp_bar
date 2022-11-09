@@ -1,6 +1,6 @@
-const { Model, DataTypes } = require("sequelize");
+const { Model, DataTypes } = require('sequelize');
 
-const sequelize = require("../config/connection.js");
+const sequelize = require('../config/connection.js');
 
 class Booking extends Model {}
 
@@ -24,16 +24,16 @@ Booking.init(
     seating_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "seating",
-        key: "id",
+        model: 'seating',
+        key: 'id',
       },
     },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "user",
-        key: "id",
+        model: 'user',
+        key: 'id',
       },
     },
   },
@@ -42,7 +42,7 @@ Booking.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "booking",
+    modelName: 'booking',
   }
 );
 

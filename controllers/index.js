@@ -37,7 +37,8 @@ router.get('/bookings', async (req, res) => {
           .format('DD/MM/YYYY');
         return booking;
       });
-      res.render('bookings', { bookings });
+      const currentDate = moment().tz('Australia/Sydney').format('YYYY-MM-DD');
+      res.render('bookings', { currentDate, bookings });
     } else {
       res.redirect('/');
     }

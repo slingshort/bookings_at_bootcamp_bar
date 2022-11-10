@@ -28,6 +28,7 @@
     "express-session": "^1.17.3",
     "moment-timezone": "^0.5.38",
     "mysql2": "^2.3.3",
+    "nodemailer": "^6.8.0",
     "normalize.css": "^8.0.1",
     "sequelize": "^6.25.3"
   },

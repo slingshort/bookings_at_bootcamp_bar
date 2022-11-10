@@ -1,27 +1,27 @@
-const router = require("express").Router();
-const { Booking, User, Seating } = require("../models");
-const apiRoutes = require("./api");
-const moment = require("moment-timezone");
+const router = require('express').Router();
+const { Booking, Seating } = require('../models');
+const apiRoutes = require('./api');
+const moment = require('moment-timezone');
 
 
 
-router.use("/api", apiRoutes);
+router.use('/api', apiRoutes);
 
 // landing page (static file)
 router.get('/', async(req,res) => {
-  res.render('login')
-})
+  res.render('login');
+});
 
 // singup page (static file)
 router.get('/signup', async(req,res) => {
-  res.render('signup')
-})
+  res.render('signup');
+});
 
 // bookings page
-router.get("/bookings", async (req, res) => {
+router.get('/bookings', async (req, res) => {
   try {
     // Check for active session
-    if (req.session?.logged_in) {
+    if (req.session.logged_in) {
       // find all bookings for the active user
       let bookings = await Booking.findAll({
         where: {
@@ -29,18 +29,18 @@ router.get("/bookings", async (req, res) => {
         },
         include: [{ model: Seating }],
         attributes: {
-          exclude: ["seating_id", "user_id"],
+          exclude: ['seating_id', 'user_id'],
         },
       });
       bookings = bookings.map((booking) => {
         booking = booking.get({ plain: true});
-        booking.date = moment(booking.date).tz("Australia/Sydney").format("DD/MM/YYYY")
-        return booking
-      })
-      console.log(bookings)
+        booking.date = moment(booking.date).tz('Australia/Sydney').format('DD/MM/YYYY');
+        return booking;
+      });
+      console.log(bookings);
       res.render( 'bookings', { bookings });
     } else {
-      res.status(401).json({ message: "Invalid session!" });
+      res.status(401).json({ message: 'Invalid session!' });
     }
   } catch (err) {
     console.log(err);
@@ -49,7 +49,7 @@ router.get("/bookings", async (req, res) => {
 });
 
 router.use((req, res) => {
-  res.send("<h1>Wrong Route!</h1>");
+  res.send('<h1>Wrong Route!</h1>');
 });
 
 module.exports = router;

@@ -6,8 +6,8 @@ let transporter = nodemailer.createTransport({
     secure: false,
     auth: {
       // configured env variables in heroku (sensitive info)
-        user: process.env.SENDER_EMAIL,
-        pass: process.env.SENDER_PW,
+      user: process.env.SENDER_EMAIL,
+      pass: process.env.SENDER_PW,
   },
 
 });

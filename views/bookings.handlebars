@@ -12,20 +12,23 @@
 
             <div class="container">
                 <main class="row justify-content-around">
-                    <form class="col">
+                    <form id="bookingForm" class="col">
                         <div class="mb-3 px-5">
                             <label for="seating" class="form-label">Pick a date here</label>
                             <!-- TODO create a custom drop down with allocated times -->
-                            <input type="date" class="form-control" id="seating">
+                            <input required type="date" min="{{currentDate}}" class="form-control" id="date">
                         </div>
                         <div class="input-group mb-3 ps-5">
-                            <select class="custom-select" id="inputGroupSelect01">
+                            <select class="custom-select" id="seating">
                                 <option selected> Please select a seating time </option>
-                                <option value="1" > 6pm </option>
-                                <option value="2" > 8pm </option>
+                                <option id="seating1" value="1" > 6PM </option>
+                                <option id="seating2" value="2" > 8PM </option>
                             </select>
                         </div>
-
+                        <div class="mb-3 px-5">
+                            <label for="seats" class="form-label">Number of seats</label>
+                            <input required itemid="seatsInput" type="number" min="1" class="form-control" id="seats">
+                        </div>
                         <div class="d-flex justify-content-end pe-5">
                             <button type="submit" class="btn btn-outline-light mb-3" id="bookingBtn">Confirm Booking</button>
                         </div>

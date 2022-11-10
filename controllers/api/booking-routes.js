@@ -74,16 +74,19 @@ router.post('/', async (req, res) => {
   // create a new booking
   try {
     // User can only book for themselves
-    if (req.session?.user_id === req.body?.user_id) {
-      const data = await Booking.create({
+    if (req.session?.logged_in) {
+      await Booking.create({
         ...req.body,
-        date: moment(req.body.date, 'DD/MM/YYYY')
+        date: moment(req.body.date, 'YYYY-MM-DD')
           .tz('Australia/Sydney')
           .toISOString(),
+        user_id: req.session.user_id,
       });
-      res.status(200).json(data);
+      res.statusMessage = 'Successfully created booking';
+      res.status(200).end();
     } else {
-      res.status(400).json({ message: 'Invalid payload!' });
+      res.statusMessage = 'Invalid payload!';
+      res.status(400).end();
     }
   } catch (err) {
     res.status(400).json(err);

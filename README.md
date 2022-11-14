@@ -63,9 +63,11 @@ Response
 ## Future Development
 Features that would be included in future development:
 - When users choose to subscibe to the Newsletter, they are sent a monthly email with an overview of events and info for the bar
+- Update a booking
 - Online poll in login dashboard so that users can vote for their favourite drink
 - Online bills and payments/credit system
 - Mobile app
+
 
 ## Contributors
 Janine [Github](https://github.com/jmdg1023)
